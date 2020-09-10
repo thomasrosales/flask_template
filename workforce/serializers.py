@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 from utils.serializers import BaseSchema
 from .models import User, Seller, Costumer
-from sales.serializers import SaleSchema
+# from sales.serializers import SaleSchema
 
 
 # Create your serializers here.
@@ -15,7 +15,7 @@ class ManagerSchema(BaseSchema):
 class SellerSchema(BaseSchema):
     user_id = fields.Int(required=True)
     user = fields.Nested(lambda: UserSchema(exclude=["created", "modified"]))
-    sales = fields.List(fields.Nested(SaleSchema(exclude=("seller_id",))))
+    # sales = fields.List(fields.Nested(SaleSchema(exclude=("seller_id",))))
 
 
 class CostumerSchema(BaseSchema):

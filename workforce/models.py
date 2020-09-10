@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Tab
 from sqlalchemy.orm import relationship
 from settings.database import Base
 from utils.models import DateAware
-from sales.models import Sale
+# from sales.models import Sale
 
 # Create your model here.
 
@@ -49,7 +49,7 @@ class Seller(DateAware):
 
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     user = relationship("User", back_populates="seller")
-    sale = relationship("Sale")
+    # sale = relationship("Sale")
 
     def __init__(self, user_id):
         self.user_id = user_id
